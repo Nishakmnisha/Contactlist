@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+        <table class="table table-bordered table-active">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Telephone</th>
+                    <th>Phone Number</th>
+                    <th></th>
+                    <th></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in cont %}
+                <tr>
+                    <td>{{i.user.id}}</td>
+                    <td>{{i.user.first_name}}</td>
+                    <td>{{i.user.last_name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.Telephone}}</td>
+                    <td>{{i.phone_number}}</td>
+                    <td><a href="{% url 'update' user.id %}" class="btn btn-danger">Update</a></td>
+                    <td><a href="{% url 'del' user.id %}" class="btn btn-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    </div>
+        
+   
+    {% endblock %}
+</body>
+</html>
